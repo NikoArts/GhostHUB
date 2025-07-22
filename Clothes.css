@@ -198,6 +198,7 @@ body {
     max-height: 400px; /* или 500px, подбери под размер */
     overflow-y: auto;
     padding-right: 10px; /* чтобы не прилипал к скроллбару */
+	font-family: 'Segoe print', cursive;
 }
 
 
@@ -218,6 +219,7 @@ body {
     white-space: normal;
     overflow: visible;
     max-height: none;
+	font-family: 'Segoe print', cursive;
 }
 
 
