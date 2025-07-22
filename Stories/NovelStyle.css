@@ -76,6 +76,7 @@ select {
     margin: 20px;
     box-shadow: 0 0 10px #00eaff88;
     line-height: 1.6;
+	font-family: 'Monotype Corsiva';
 }
 
 /* Buttons */
@@ -122,6 +123,7 @@ div{
 
 #reader-container{
 	text-align: center;
+	font-family: 'Segoe print', cursive;
 }
 
 #background-fade{
