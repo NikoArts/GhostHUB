@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>GhostHUB Novel Reader</title>
+    <link rel="stylesheet" href="NovelStyle.css">
+    <script src="01.js" defer></script>
+</head>
+<body>
+
+<div id="background-fade"></div>
+
+<div id="novel-header">
+    <h1 id="novel-title">Не смей умирать, пока я не исправлюсь!</h1>
+    <h2 id="chapter-title"> . . . </h2>
+	<a href="../Ghosthub.html" class="ReturnButton"> <img src = "../Images/BackArrow.png" width="90vh"> </a>
+</div>
+
+<div id="chapter-controls">
+    <select id="volume-select"></select>
+    <select id="chapter-select"></select>
+</div>
+
+<div id="reader-container">
+    <div id="chapter-content"> Нажмите кнопку [Следующая →] для начала чтения.</div>
+</div>
+
+<div id="nav-buttons">
+    <button class="pulse" onclick="prevChapter()">← Предыдущая</button>
+    <button class="pulse" onclick="nextChapter()">Следующая →</button>
+</div>
+
+</body>
+</html>

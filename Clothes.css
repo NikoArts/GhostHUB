@@ -1,0 +1,362 @@
+body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('Images/bg.png');
+            background-repeat: repeat;
+            background-size: auto;
+            animation: scroll-bg 30s linear infinite;
+			font-family: 'Monotype Corsiva', cursive;
+        }
+	
+	@keyframes scroll-bg {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1548px -1056px;
+            }
+        }
+
+.magical-button {
+    position: fixed;
+	top: 50%;
+	left: 50%;
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-transform: lowercase;
+    text-shadow:
+        0 0 6px #3ae0ff88,
+        0 0 8px #06a7db88;
+    background: linear-gradient(135deg, #002e4f, #004c7a);
+    border: 2px solid #06a7dbaa;
+    border-radius: 8px 2px 8px 2px;
+    box-shadow:
+        inset 0 0 6px #04a9e088,
+        0 0 12px #06a7db88;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: drop-shadow(0 0 4px #08c7ff66);
+    overflow: visible;
+    z-index: 0;
+}
+
+/* Dark translucent overlay behind text for contrast */
+.magical-button span {
+    position: relative;
+    z-index: 10;
+    padding: 0 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Glow circles with reduced opacity and blur */
+.magical-button::before,
+.magical-button::after,
+.magical-button span::before,
+.magical-button span::after,
+.magical-button div::before,
+.magical-button div::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.25;
+    filter: blur(14px);
+    pointer-events: none;
+    animation: pulseOcean 4s infinite ease-in-out;
+    transition: opacity 0.3s ease;
+}
+
+.magical-button::before {
+    top: -15px; left: 15%;
+    width: 50px; height: 50px;
+    background: #00bfff;
+    animation-delay: 0s;
+}
+.magical-button::after {
+    bottom: -15px; right: 15%;
+    width: 45px; height: 45px;
+    background: #0099cc;
+    animation-delay: 1.5s;
+}
+.magical-button span::before {
+    top: 50%; left: -20px;
+    width: 35px; height: 35px;
+    background: #04d4ff;
+    animation-delay: 0.8s;
+    transform: translateY(-50%);
+}
+.magical-button span::after {
+    top: 20%; right: -20px;
+    width: 30px; height: 30px;
+    background: #02b0e0;
+    animation-delay: 2.2s;
+}
+.magical-button div::before {
+    bottom: 20%; left: 50%;
+    width: 40px; height: 40px;
+    background: #06efff;
+    animation-delay: 1.1s;
+    transform: translateX(-50%);
+}
+.magical-button div::after {
+    bottom: 50%; right: 50%;
+    width: 38px; height: 38px;
+    background: #0499cc;
+    animation-delay: 2.8s;
+    transform: translate(50%, 50%);
+}
+
+.magical-button:hover {
+    transform: scale(1.05);
+    box-shadow:
+        inset 0 0 10px #06ccffcc,
+        0 0 22px #00cfffcc,
+        0 0 34px #00e0ffcc;
+    filter: drop-shadow(0 0 8px #09e0ffaa);
+}
+
+@keyframes pulseOcean {
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.4);
+    }
+}
+
+#fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 1s ease;
+}
+
+.story-block {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 20px;
+    border: 1px solid #0ff;
+    border-radius: 12px;
+    color: #ffffff;
+    gap: 20px;
+    box-shadow:
+        inset 0 0 10px #06ccffcc,
+        0 0 7px #00cfffcc,
+        0 0 3px #00e0ffcc;
+	transform: none;
+}
+
+/* Центрируем .story-block во время предпросмотра */
+#story-scroller {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.story-block img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.story-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px; /* или 500px, подбери под размер */
+    overflow-y: auto;
+    padding-right: 10px; /* чтобы не прилипал к скроллбару */
+}
+
+
+.story-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    color: #00eaff;
+}
+
+.genres-wrapper {
+    display: block;
+}
+
+.genres {
+    font-size: 1.2vw;
+    color: #a0f0ff;
+    white-space: normal;
+    overflow: visible;
+    max-height: none;
+}
+
+
+.genres.expanded {
+    max-height: 100px;
+    white-space: normal;
+}
+
+.expand-genres {
+    font-size: 1.2vw;
+    padding: 2px 6px;
+    background: #004e66;
+    color: #00eaff;
+    border: 1px solid #0ff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0;
+}
+
+
+.description {
+    font-size: 1.2vw;
+    color: #e0e0e0;
+    margin: 0;
+    max-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-height 0.3s ease;
+}
+
+.description.expanded {
+    max-height: 1000px;
+}
+
+.story-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.story-buttons button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    background: #003d4c;
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#initial-layout{
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+}
+
+#initial-layout {
+	transition: transform 1s ease-in, opacity 1s ease;
+}
+
+#initial-layout.slide-up {
+    transform: translate(-50%, -100vh); /* сохранён -50% по X */
+    opacity: 0;
+}
+
+.HeaderTitle{
+	width: 50vw;
+	font-size: 2vw;
+	text-align: center;
+	color: #ffffff;
+	position: absolute;
+	top: 10vw;
+	left: -42vh;
+	transform-origin: center center;
+}
+
+.HeaderTitle2{
+	width: 50vw;
+	font-size: 2vw;
+	text-align: center;
+	color: #ffffff;
+	position: absolute;
+	top: -14vw;
+	left: -42vh;
+	transform-origin: center center;
+}
+
+.HeaderTitle1{
+	width: 50vw;
+	font-size: 8vw;
+	text-align: center;
+	color: #ffffff;
+	position: absolute;
+	top: -26vw;
+	left: -42vh;
+	transform-origin: center center;
+}
+
+.HeaderTitle3{
+	width: 20vw;
+	font-size: 1vw;
+	text-align: center;
+	color: #84BEC3;
+	position: fixed;
+	bottom: 2vw;
+	left: 3vh;
+	transform-origin: center center;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08c7ff66;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #003d4c;
+  border-radius: 5px;
+  border: 2px solid #08c7ff66;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00203B;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #003d4c #08c7ff66;
+}
+
+
+.description.expanded {
+    max-height: 400px; /* или сколько нужно */
+    overflow-y: auto;
+    padding-right: 10px; /* чтобы не перекрывало ползунком */
+}
