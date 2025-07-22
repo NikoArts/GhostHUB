@@ -148,8 +148,7 @@ body {
 }
 
 .story-block {
-    width: 90%;
-    max-width: 700px;
+    width: 53vw;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
